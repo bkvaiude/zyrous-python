@@ -1,0 +1,38 @@
+version: '3.7'
+
+services:
+  dynamodb:
+    image: amazon/dynamodb-local
+    command: "-jar DynamoDBLocal.jar -inMemory"
+    working_dir: /home/dynamodblocal
+    restart: always
+
+  order-api:
+    build:
+      context: ./src
+      dockerfile: Dockerfile
+      args:
+        GIT_TOKEN: $GIT_TOKEN
+    ports:
+      - "8000:80"
+    networks:
+      - default
+    command: "/start-reload.sh"
+    volumes:
+      - ./src/app:/sample_api/app
+    environment:
+      NOTIFY_MODE: dynamodb
+      NOTIFY_DDB_TABLE: order_api_notifications
+      NOTIFY_DDB_ENDPOINT: http://dynamodb:8000
+      NOTIFY_DDB_ACCESS_KEY_ID: FakeKeyId
+      NOTIFY_DDB_SECRET_ACCESS_KEY: FakeAccessKey
+      NOTIFY_DDB_REGION: FakeRegion
+      NOTIFY_DDB_WRITE_CAPACITY_UNITS: 1
+      NOTIFY_DDB_READ_CAPACITY_UNITS: 1
+      PERSIST_MODE: pynamodb
+      PERSIST_DDB_ENDPOINT: http://dynamodb:8000
+      PERSIST_DDB_ACCESS_KEY_ID: FakeKeyId
+      PERSIST_DDB_SECRET_ACCESS_KEY: FakeAccessKey
+      PERSIST_DDB_REGION: FakeRegion
+      PERSIST_DDB_READ_CAPACITY: 1
+      PERSIST_DDB_WRITE_CAPACITY: 1

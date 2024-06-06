@@ -1,0 +1,35 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+zyrous-service = {git = "https://x-token-auth:${GIT_TOKEN}@bitbucket.org/zyrous/python-service-package.git"}
+fastapi = "*"
+
+[dev-packages]
+pytest = "*"
+gql = "*"
+aiohttp = "*"
+faker = "*"
+pytest-asyncio = "*"
+pytest-testmon = "*"
+websockets = "*"
+pytest-watch = "*"
+pytest-cov = "*"
+pytest-html = "*"
+pytest-xdist = "*"
+pre-commit = "*"
+commitizen = "*"
+pylint = "*"
+
+[requires]
+python_version = "3.10"
+
+[scripts]
+test-unit = "pipenv run python -m pytest -v ./tests/unit/"
+test-unit-coverage = "pipenv run python -m pytest --cov --cov-config=.coveragerc --cov-report html:./htmlcov --cov-report xml:coverage.xml --cov-report term -v ./tests/unit/"
+test-unit-watch = "pipenv run ptw -p --ignore ./tests/integration/ -- --testmon"
+test-integration = "pipenv run python -m pytest -v ./tests/integration/"
+test-integration-watch = "pipenv run ptw -p --ignore ./tests/unit/ -- --testmon"
+lint = "pre-commit run"
