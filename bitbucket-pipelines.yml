@@ -1,0 +1,38 @@
+image: atlassian/default-image:3
+
+options:
+  docker: true
+
+definitions:
+  steps:
+  - step: &unit-test
+      name: Unit Test
+      condition:
+        changesets:
+          includePaths:
+            - "src/**"
+      caches:
+        - pip
+      script:
+        # Install pip
+        - apt update
+        - apt install -y python3-pip libpq-dev
+        # Install requirement converter
+        - pip install pipfile-requirements
+        # Move into source directory
+        - cd src/
+        # Get packages from pipfile
+        - pipfile2req Pipfile > requirements.txt
+        # Get dev packages from pipfile
+        - pipfile2req --dev Pipfile >> requirements.txt
+        - echo "Installing requirements"
+        - cat requirements.txt
+        - pip install -r requirements.txt
+        # Run unit test
+        - pytest --cov --cov-config=.coveragerc --cov-report xml:coverage.xml --cov-report term -v ./tests/unit/
+        # Upload coverage
+        - bash <(curl -Ls https://coverage.codacy.com/get.sh) report -r coverage.xml
+
+pipelines:
+  default:
+    - step: *unit-test
