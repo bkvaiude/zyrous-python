@@ -1,16 +1,15 @@
-FROM tiangolo/uvicorn-gunicorn:python3.11
+FROM public.ecr.aws/lambda/python:3.10
 
 RUN pip3 install pipfile-requirements==0.3.0
+RUN yum -y install git
 
-COPY ./app /sample_api/app
-
-WORKDIR /sample_api
+COPY . ${LAMBDA_TASK_ROOT} 
+WORKDIR ${LAMBDA_TASK_ROOT}
 
 ARG GIT_TOKEN
 
-# Point to the location of our API for uvicorn
-ENV APP_MODULE="app.main:app"
-
-COPY Pipfile.lock /sample_api/
+COPY ./Pipfile.lock .
 RUN pipfile2req ./Pipfile.lock -s > requirements.txt
 RUN pip3 install -r requirements.txt
+
+CMD ["app.main.app"]
