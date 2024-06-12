@@ -14,7 +14,7 @@ services:
       args:
         GIT_TOKEN: $GIT_TOKEN
     ports:
-      - "8000:80"
+      - "8000:8080"
     networks:
       - default
     command: "/start-reload.sh"
