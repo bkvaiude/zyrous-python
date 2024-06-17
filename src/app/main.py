@@ -2,6 +2,8 @@
 
 from fastapi.middleware.cors import CORSMiddleware
 
+from service.system.system_context import SystemContext
+
 from .configuration import configure_app
 
 # Create the FastAPI application. This configures
@@ -12,7 +14,7 @@ app = configure_app()
 app.title = 'Sample API'
 
 # Configure CORS.
-app.add_middleware(
+SystemContext.get_app().add_middleware(
     CORSMiddleware,
     allow_origins=['*'],
     allow_credentials=True,
