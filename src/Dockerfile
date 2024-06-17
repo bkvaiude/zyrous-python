@@ -12,4 +12,4 @@ COPY ./Pipfile.lock .
 RUN pipfile2req ./Pipfile.lock -s > requirements.txt
 RUN pip3 install -r requirements.txt
 
-CMD ["app.main:app"]
+CMD ["app.main.app"]
