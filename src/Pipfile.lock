@@ -474,7 +474,7 @@
                 "sha256:a44fb486fc3e66a25b58d921e07f016f62416e323b381b96c1b725105868dacf"
             ],
             "markers": "python_version >= '3.6'",
-            "version": "==5.5.0"
+            "version": "==5.5.1"
         },
         "python-dateutil": {
             "hashes": [
