@@ -30,7 +30,7 @@
                 "sha256:bca0526f819e0f19c0f1e6eba3e2d1d6b6a92a45129f98c0d716e5aab6d9444b"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==1.28.17"
+            "version": "==1.34.19"
         },
         "botocore": {
             "hashes": [
@@ -38,7 +38,7 @@
                 "sha256:6ac34a1d34aa3750e78b77b8596617e2bab938964694d651939dba2cbde2c12b"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==1.31.17"
+            "version": "==1.34.19"
         },
         "certifi": {
             "hashes": [
@@ -240,7 +240,7 @@
                 "sha256:ec6dd52bfc4eff3063cfcd0713b43c87640fefb2687bbbe3d8a08d94049cdf32"
             ],
             "index": "pypi",
-            "version": "==0.100.1"
+            "version": "==0.111.0"
         },
         "fastapi-utils": {
             "hashes": [
@@ -248,7 +248,7 @@
                 "sha256:dd0be7dc7f03fa681b25487a206651d99f2330d5a567fb8ab6cb5f8a06a29360"
             ],
             "markers": "python_version >= '3.6' and python_version < '4.0'",
-            "version": "==0.2.1"
+            "version": "==0.6.0"
         },
         "graphql-core": {
             "hashes": [
@@ -406,7 +406,7 @@
                 "sha256:ffe9dc0a884a8848075e576c1de0290d85a533a9f6e9c4e564f19adf8f6e54a7"
             ],
             "markers": "python_version >= '3.6'",
-            "version": "==2.9.6"
+            "version": "==2.9.9"
         },
         "pycparser": {
             "hashes": [
@@ -484,20 +484,14 @@
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
             "version": "==2.8.2"
         },
-        "python-multipart": {
-            "hashes": [
-                "sha256:e9925a80bb668529f1b67c7fdb0a5dacdd7cbfc6fb0bff3ea443fe22bdd62132",
-                "sha256:ee698bab5ef148b0a760751c261902cd096e57e10558e11aca17646b74ee1c18"
-            ],
-            "version": "==0.0.6"
-        },
+
         "requests": {
             "hashes": [
                 "sha256:58cd2187c01e70e6e26505bca751777aa9f2ee0b7f4300988b709f44e013003f",
                 "sha256:942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==2.31.0"
+            "version": "==2.32.2"
         },
         "s3transfer": {
             "hashes": [
@@ -505,7 +499,7 @@
                 "sha256:640bb492711f4c0c0905e1f62b6aaeb771881935ad27884852411f8e9cacbca9"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==0.6.1"
+            "version": "==0.10.0"
         },
         "six": {
             "hashes": [
@@ -565,7 +559,7 @@
                 "sha256:f8a65990c9c490f4651b5c02abccc9f113a7f56fa482031ac8cb88b70bc8ccaa"
             ],
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4, 3.5'",
-            "version": "==1.4.49"
+            "version": "==2.0.30"
         },
         "starlette": {
             "hashes": [
@@ -573,26 +567,16 @@
                 "sha256:918416370e846586541235ccd38a474c08b80443ed31c578a418e2209b3eef91"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==0.27.0"
+            "version": "==0.37.2"
         },
-        "strawberry-graphql": {
-            "extras": [
-                "fastapi"
-            ],
-            "hashes": [
-                "sha256:30b8bb28adf57a64af9f6915a6d58400898e32aa60e7578bfdb642d6d562199d",
-                "sha256:eb3cb0c4b0eda573ce38731cdc60527a76e0a33e6db17fcabc72b9870f36e4ad"
-            ],
-            "markers": "python_version >= '3.8' and python_version < '4.0'",
-            "version": "==0.199.0"
-        },
+
         "typing-extensions": {
             "hashes": [
                 "sha256:440d5dd3af93b060174bf433bccd69b0babc3b15b1a8dca43789fd7f61514b36",
                 "sha256:b75ddc264f0ba5615db7ba217daeb99701ad295353c45f9e95963337ceeeffb2"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==4.7.1"
+            "version": "==4.8.0"
         },
         "urllib3": {
             "hashes": [
@@ -600,11 +584,10 @@
                 "sha256:8f135f6502756bde6b2a9b28989df5fbe87c9970cecaa69041edcce7f0589b14"
             ],
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4, 3.5'",
-            "version": "==1.26.16"
+            "version": "==1.26.18"
         },
         "zyrous-service": {
-            "git": "https://x-token-auth:${GIT_TOKEN}@bitbucket.org/zyrous/python-service-package.git",
-            "ref": "1b653e53b4b7207c7b2371c9128781dd89a6ec6a"
+            "git": "https://x-token-auth:${GIT_TOKEN}@bitbucket.org/zyrous/python-service-package.git@2.0.3"
         }
     },
     "develop": {
