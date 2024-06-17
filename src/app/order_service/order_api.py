@@ -81,25 +81,3 @@ class OrderApi(ApiBase[OrderService]):
         order = self.service.fulfil_order(id)
         return OrderModel.from_domain(order)
 
-    @graphql_subscription()
-    async def order_created(self) -> AsyncGenerator[OrderModel, None]:
-        # This is a subscription, which is long-running, so we need to declare
-        # it as an async function. We return an AsyncGenerator so that we can
-        # yield new objects as we need to.
-
-        # The API can use the Service's messaging functions to listen for events
-        # that it's interested in.
-        async for order in self.service.observe('order_created'):
-            yield OrderModel.from_domain(order)
-
-    @graphql_subscription()
-    async def order_cancelled(self) -> AsyncGenerator[OrderModel, None]:
-
-        async for order in self.service.observe('order_cancelled'):
-            yield OrderModel.from_domain(order)
-
-    @graphql_subscription()
-    async def order_fulfilled(self) -> AsyncGenerator[OrderModel, None]:
-
-        async for order in self.service.observe('order_fulfilled'):
-            yield OrderModel.from_domain(order)

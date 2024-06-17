@@ -33,19 +33,3 @@ class ShippingApi(ApiBase[ShippingService]):
         shipping = self.service.add_update(order_id=order_id, message=message)
         return ShippingModel.from_domain(shipping)
 
-    @graphql_subscription()
-    async def shipping_created(self) -> AsyncGenerator[ShippingModel, None]:
-
-        async for shipping in self.service.observe('shipping_created'):
-            yield ShippingModel.from_domain(shipping)
-
-    @graphql_subscription()
-    async def shipping_updated(
-        self,
-        order_id: Optional[UUID],
-    ) -> AsyncGenerator[ShippingModel, None]:
-
-        async for shipping in self.service.observe('shipping_updated'):
-
-            if equals_if_not_none_or_empty(shipping.order_id, order_id):
-                yield ShippingModel.from_domain(shipping)
