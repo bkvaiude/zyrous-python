@@ -17,9 +17,8 @@ services:
       - "8000:8080"
     networks:
       - default
-    command: "/start-reload.sh"
-    volumes:
-      - ./src/app:/sample_api/app
+    # volumes:
+    #   - ./src/app:/var/task
     environment:
       NOTIFY_MODE: dynamodb
       NOTIFY_DDB_TABLE: order_api_notifications
@@ -36,3 +35,8 @@ services:
       PERSIST_DDB_REGION: FakeRegion
       PERSIST_DDB_READ_CAPACITY: 1
       PERSIST_DDB_WRITE_CAPACITY: 1
+      CREATE_TABLES: True
+      AWS_ACCESS_KEY_ID: FakeKeyId
+      AWS_SECRET_ACCESS_KEY: FakeAccessKey
+      AWS_DEFAULT_REGION: ap-southeast-2
+      
